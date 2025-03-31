@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex7</title>
+    <style>
+        body{
+            margin-top: 50px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input, button{
+            margin-top: 10px;
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h2>English to Swedish</h2>
+    <input type="text" id="text" placeholder="Enter text">
+    <br>
+    <button onclick="translateText()">Translate</button>
+    <h3 id="result"></h3>
+
+    <script>
+        const dir = {
+            "merry": "god",
+            "christmas": "jul",
+            "and": "och",
+            "happy": "gott",
+            "new": "nytt",
+            "year": "år"
+        }
+
+        function translateText(){
+            const text = document.getElementById('text').value;
+
+            let result = "";
+            const words = text.toLowerCase().split(" ");
+
+            for(let word of words)
+            {
+                if(dir[word])
+                {
+                    result += dir[word] + " ";
+                }
+                else
+                {
+                    result += word + " ";
+                }
+            }
+
+            document.getElementById('result').innerText = `${result}`;
+        }
+    </script>
+</body>
+</html>

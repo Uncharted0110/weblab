@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex14</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            text-align: center;
+        }
+        input, button {
+            width: 70%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: azure;
+        }
+        .checkbox{
+            width: 5%;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <div class="form-container">
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Full Name" />
+            <input type="text" id="username" placeholder="User Name" />
+            <input type="password" id="password" placeholder="Password" />
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" />
+            <input type="number" id="yearOfBirth" placeholder="Year of Birth" />
+            <input type="email" id="email" placeholder="Email Address" />
+            <br>
+            <input class="checkbox" type="checkbox" id="terms" />I agree to the terms and conditions
+            <br>
+            <button type="submit">Register</button>
+        </form>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const yearOfBirth = document.getElementById("yearOfBirth").value;
+            const email = document.getElementById("email").value.trim();
+            const termsChecked = document.getElementById("terms").checked;
+            const errorDiv = document.getElementById("error");
+
+            errorDiv.innerHTML = "";
+
+            if (!name || !username || !password || !confirmPassword || !email || !yearOfBirth) 
+            {
+                errorDiv.innerText = "All fields are required.";
+                return false;
+            }
+
+            if (password !== confirmPassword) 
+            {
+                errorDiv.innerText = "Passwords do not match.";
+                return false;
+            }
+
+            if (yearOfBirth.length !== 4 || isNaN(yearOfBirth) || yearOfBirth < 1900 || yearOfBirth > 2000) 
+            {
+                errorDiv.innerText = "Year of birth must be a 4-digit number between 1900 and 2000.";
+                return false;
+            }
+
+            if (!termsChecked) 
+            {
+                errorDiv.innerText = "You must agree to the terms and conditions.";
+                return false;
+            }
+
+            alert("Registration Successful!");
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 50px;
+            text-align: center;
+        }
+        input, button{
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Check Vowel</h2>
+    <input type="text" id="vowel" maxlength="1" placeholder="Enter a character">
+    <br>
+    <button onclick="checkVowel()">Check Vowel</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function checkVowel(){
+            const vowels = "aeiouAEIOU";
+            const char = document.getElementById('vowel').value;
+            const isVowel = vowels.includes(char);
+            
+            const result = isVowel ? "It is a vowel" : "It is not a Vowel";
+            document.getElementById('result').innerText = `${result}`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex9</title>
+    <style>
+        body{
+            margin-top: 50px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input, button{
+            margin-top: 10px;
+            padding: 10px;
+        }
+        .text{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Words longer than i</h2>
+    <input type="text" id="text" placeholder="Enter text">   
+    <br> 
+    <input type="text" id="i" placeholder="Enter i value">
+    <br>
+    <button onclick="wordsLongerThanI()">Words</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function wordsLongerThanI(){
+            const text = document.getElementById('text').value;
+            const i = parseFloat(document.getElementById('i').value)
+            
+            let result = [];
+            const words = text.split(" ");
+
+            for(let word of words)
+            {
+                if(word.length > i)
+                {
+                    result.push(word);
+                }
+            }
+
+            document.getElementById('result').innerText = `${result.join(', ')}`;
+        }
+    </script>
+</body>
+</html>

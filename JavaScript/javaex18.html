@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ex18</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            text-align: center;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Who is it</h2>
+    <img 
+        id="myImage"
+        src="https://imageio.forbes.com/specials-images/imageserve/6731f235d3362668af291bad/FC-Barcelona-prodigy-Lamine-Yamal-is-expected-to-be-out-of-action-for-two-to-three/960x0.jpg?format=jpg&width=1440" 
+        onmouseover="changeImage('https://www.fcbarcelona.com/photo-resources/2020/04/30/43337a9f-3781-4886-948c-f70912e4b1af/1920x1080_Messi_primerGol-min.jpg?width=1680&height=1050')" 
+        onmouseout="changeImage('https://imageio.forbes.com/specials-images/imageserve/6731f235d3362668af291bad/FC-Barcelona-prodigy-Lamine-Yamal-is-expected-to-be-out-of-action-for-two-to-three/960x0.jpg?format=jpg&width=1440')" 
+    />
+
+    <script>
+        function changeImage(imageSrc) {
+            document.getElementById("myImage").src = imageSrc;
+        }
+    </script>
+
+</body>
+</html>

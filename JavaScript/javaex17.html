@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex17</title>
+</head>
+<body>
+    <h2>User Info</h2>
+    <div class="form-container">
+        <form id="userForm" onsubmit="return showInfo()">
+            <input type="text" id="name" placeholder="Enter your name" required />
+            <input type="number" id="age" placeholder="Enter your age" min="1" required />
+            <input type="text" id="hometown" placeholder="Enter your hometown" required />
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function showInfo() {
+            const name = document.getElementById("name").value.trim();
+            const age = parseInt(document.getElementById("age").value);
+            const hometown = document.getElementById("hometown").value.trim();
+
+            const currentYear = new Date().getFullYear();
+            const yearOfBirth = currentYear - age;
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <p>You were born in ${yearOfBirth}.</p>
+                <a href="https://www.google.com/search?q=${hometown}" target="_blank">
+                    Search for ${hometown} on Google
+                </a>
+            `;
+
+            return false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex6</title>
+    <style>
+        body{
+            margin-top: 50px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input, button{
+            margin-top: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reverse Text</h2>
+    <input type="text" id="text" placeholder="Enter text">
+    <br>
+    <button onclick="reverseText()">Reverse</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function reverse(text){
+            let result = "";
+
+            for(let i = text.length - 1; i >= 0; i--)
+            {
+                result += text[i];    
+            }
+
+            return result;
+        }
+
+        function reverseText(){
+            const text = document.getElementById('text').value;
+            const result = reverse(text);
+
+            document.getElementById('result').innerText = `${result}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex5</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 50px;
+            text-align: center;
+        }
+        input, button{
+            padding: 10px;
+            margin-top: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sum and Product of Array</h2>
+    <input type="text" id="nums" placeholder="Enter numbers separated by comas">
+    <br>
+    <button onclick="cal('sum')">Sum</button>
+    <button onclick="cal('prod')">Product</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function sum(arr){
+            let total = 0;
+            for(let num of arr)
+            {
+                total += num;
+            }
+            return total;
+        }
+
+        function prod(arr){
+            let mul = 1;
+            for(let num of arr)
+            {
+                mul *= num;
+            }
+            return mul;
+        }
+
+        function cal(op){
+            const input = document.getElementById('nums').value;
+            const arr = input.split(',').map(Number);
+
+            if(arr.some(isNaN))
+            {
+                document.getElementById('result').innerText = "Enter numeric values";
+                return;
+            }
+
+            let result;
+            if(op === 'sum')
+            {
+                result = sum(arr);
+            }
+            else if(op === 'prod')
+            {
+                result = prod(arr);
+            }
+
+            document.getElementById('result').innerText = `${result}`;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex12</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+        ol {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sorting Names</h2>
+    <button onclick="getNames()">Enter Names</button>
+    <br>
+    <ol id="result"></ol>
+
+    <script>
+        function getNames(){
+            let names = [];
+            let name;
+
+            while(true){
+                name = prompt("Enter a name (Click cancel to stop): ");
+                if(name === null || name.trim() === "")
+                {
+                    break;
+                }
+                name = name.toUpperCase();
+                names.push(name);
+            }
+
+            if(names.length === 0)
+            {
+                alert("No names entered");
+                return;
+            }
+
+            names.sort();
+
+            const result = document.getElementById('result');
+            result.innerHTML = "";
+
+            for(let name of names)
+            {
+                const li = document.createElement('li');
+                li.textContent = name;
+                result.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>

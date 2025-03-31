@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex13</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Avg Generator</h2>
+    <button onclick="getNumbers()">Generate</button>
+    <br>
+    <h3 id="result"></h3>
+
+    <script>
+        function getNumbers(){
+            let nums = [];
+            let count = parseInt(prompt("Enter count of Numbers "));
+            let avg = 0, iter = count;
+            let displayNums = "";
+
+            while(iter > 0)
+            {
+                let num = Math.floor(Math.random() * 101)
+                displayNums += num + " ";
+                nums.push(num);
+                avg += num;
+                iter--;
+            }
+
+            avg  = avg / count;
+
+            document.getElementById('result').innerText = `Numbers: ${displayNums}\nAverage: ${avg}`;
+        }
+    </script>
+</body>
+</html>
